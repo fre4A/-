@@ -79,7 +79,7 @@ def show_loss_acc(history):
 
 def train(epochs):
     begin_time = time()
-    train_ds, val_ds, class_names = data_load("F:/datas/tmp/data/tttt/trash_jpg", 224, 224, 16)
+    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 16)#这里是数据集保存位置
     print(class_names)
     model = model_load(class_num=len(class_names))
     history = model.fit(train_ds, validation_data=val_ds, epochs=epochs)
