@@ -15,7 +15,7 @@ class MainWindow(QTabWidget):
         super().__init__()
         self.setWindowIcon(QIcon('images/logo.png'))
         self.setWindowTitle('垃圾智能分类系统')
-        self.model = tf.keras.models.load_model("models/mobilenet_245_epoch30.h5")  # todo 修改为自己的模型路径
+        self.model = tf.keras.models.load_model("models11/mobilenet_245_epoch30.h5")  # todo 修改为自己的模型路径
         self.to_predict_name = "images/cc.jpeg"
         self.class_names = ['其他垃圾_PE塑料袋', '其他垃圾_U型回形针', '其他垃圾_一次性杯子', '其他垃圾_一次性棉签', '其他垃圾_串串竹签', '其他垃圾_便利贴', '其他垃圾_创可贴',
                             '其他垃圾_卫生纸', '其他垃圾_厨房手套', '其他垃圾_厨房抹布', '其他垃圾_口罩', '其他垃圾_唱片', '其他垃圾_图钉', '其他垃圾_大龙虾头',
@@ -125,15 +125,12 @@ class MainWindow(QTabWidget):
         about_img = QLabel()
         about_img.setPixmap(QPixmap('images/about.png'))
         about_img.setAlignment(Qt.AlignCenter)
-        label_super = QLabel('<a href="https://space.bilibili.com/161240964">作者：dejahu（关注我不迷路）</a>')
-        label_super.setFont(QFont('楷体', 12))
-        label_super.setOpenExternalLinks(True)
-        label_super.setAlignment(Qt.AlignRight)
+        
         about_layout.addWidget(about_title)
         about_layout.addStretch()
         about_layout.addWidget(about_img)
         about_layout.addStretch()
-        about_layout.addWidget(label_super)
+        
         about_widget.setLayout(about_layout)
 
         main_layout.addWidget(left_widget)
