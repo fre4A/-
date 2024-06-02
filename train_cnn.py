@@ -79,7 +79,7 @@ def show_loss_acc(history):
 #训练函数 加载数据集、创建模型、进行训练并保存模型，然后打印训练时间，并调用之前定义的 show_loss_acc(history) 函数来展示训练过程中的损失和准确率变化
 def train(epochs):
     begin_time = time()
-    train_ds, val_ds, class_names = data_load("D:\垃圾分类\垃圾分类数据集和tf代码-8w张图片245个类(更新)\data\trash_jpg\trash_jpg", 224, 224, 16)#调用 data_load 函数加载训练和验证数据集，以及类别名称
+    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 16)#调用 data_load 函数加载训练和验证数据集，以及类别名称
     print(class_names)
     model = model_load(class_num=len(class_names))#调用 model_load 函数创建模型，其中 class_num 参数是类别的数量
     history = model.fit(train_ds, validation_data=val_ds, epochs=epochs)#使用加载的数据集对模型进行训练，训练的时期数由 epochs 参数指定，并将训练历史保存在 history 变量中
