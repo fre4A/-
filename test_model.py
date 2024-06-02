@@ -72,7 +72,7 @@ def data_load(data_dir, img_height, img_width, batch_size):
 
 # 测试mobilenet的准确率
 def test_mobilenet():
-    train_ds, val_ds, class_names = data_load("F:/datas/tmp/data/tttt/trash_jpg", 224, 224, 4)  # todo 修改为你的数据集的位置
+    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 4)  # todo 修改为你的数据集的位置
     print(class_names)
     model = tf.keras.models.load_model("models/mobilenet_245_epoch30.h5")  # todo 修改为训练好的mobilenet模型位置
     model.summary()
@@ -82,7 +82,7 @@ def test_mobilenet():
 
 # 测试cnn模型的准确率
 def test_cnn():
-    train_ds, val_ds, class_names = data_load("F:/datas/tmp/data/tttt/trash_jpg", 224, 224, 4)  # todo 修改为你的数据集的位置
+    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 4)  # todo 修改为你的数据集的位置
     model = tf.keras.models.load_model("models/cnn_245_epoch30.h5")  # todo 修改为训练好的cnn模型位置
     model.summary()
     loss, accuracy = model.evaluate(val_ds)
