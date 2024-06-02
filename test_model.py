@@ -72,9 +72,9 @@ def data_load(data_dir, img_height, img_width, batch_size):
 
 # 测试mobilenet的准确率
 def test_mobilenet():
-    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 4)  # todo 修改为你的数据集的位置
+    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 4)  # 数据集的位置
     print(class_names)
-    model = tf.keras.models.load_model("models/mobilenet_245_epoch30.h5")  # todo 修改为训练好的mobilenet模型位置
+    model = tf.keras.models.load_model("models11/mobilenet_245_epoch30.h5")  # 训练好的mobilenet模型位置
     model.summary()
     loss, accuracy = model.evaluate(val_ds)
     print('Mobilenet test accuracy :', accuracy)
@@ -82,14 +82,14 @@ def test_mobilenet():
 
 # 测试cnn模型的准确率
 def test_cnn():
-    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 4)  # todo 修改为你的数据集的位置
-    model = tf.keras.models.load_model("models/cnn_245_epoch30.h5")  # todo 修改为训练好的cnn模型位置
+    train_ds, val_ds, class_names = data_load("D:\Trash\Trash_jpg", 224, 224, 4)  # 数据集的位置
+    model = tf.keras.models.load_model("models11/cnn_245_epoch30.h5")  # 训练好的cnn模型位置
     model.summary()
     loss, accuracy = model.evaluate(val_ds)
     print('CNN test accuracy :', accuracy)
 
 
-# 绘制热力图，按照四个大类绘制热力图
+# 绘制mobilenet的热力图，按照四个大类绘制热力图
 # 注：绘制热力图这段的逻辑，因为涉及的数据比较多，为了防止出错，还是先保存为了pkl文件
 def draw_heatmap(folder_name):
     # 遍历文件夹返回数目
@@ -109,7 +109,7 @@ def draw_heatmap(folder_name):
             real_label.append(x_idx)
             images_path.append(img_path)
 
-    model = tf.keras.models.load_model("models/mobilenet_245_epoch30.h5")
+    model = tf.keras.models.load_model("models11/mobilenet_245_epoch30.h5")
     for ii, i_path in enumerate(images_path):
         print("{}/{}".format(ii, len(images_path) - 1))
         shutil.copy(i_path, "images/t1.jpg")
